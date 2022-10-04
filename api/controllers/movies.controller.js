@@ -6,6 +6,13 @@ function getAllMovies(req, res, next) {
     .catch(next);
 }
 
+function saveMovie(req, res, next) {
+  moviesService.saveMovie(req.body)
+    .then(() => res.json({ code: 200, message: 'Movie saved' }))
+    .catch(next);
+}
+
 module.exports = {
-  getAllMovies
+  getAllMovies,
+  saveMovie
 }
