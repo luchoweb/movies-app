@@ -4,10 +4,10 @@ module.exports = model;
 
 function model(sequelize) {
   const attributes = {
-    name: { type: DataTypes.STRING, allowNull: false },
-    year: { type: DataTypes.INTEGER, allowNull: false },
-    type: { type: DataTypes.STRING, allowNull: false },
-    poster: { type: DataTypes.STRING, allowNull: false }
+    Title: { type: DataTypes.STRING, allowNull: false },
+    Year: { type: DataTypes.STRING, allowNull: false },
+    Type: { type: DataTypes.STRING, allowNull: false },
+    Poster: { type: DataTypes.STRING, allowNull: false }
   };
 
   const options = {};
