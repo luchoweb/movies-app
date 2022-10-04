@@ -5,7 +5,7 @@ module.exports = db = {};
 
 initialize();
 
-async function initialize() {
+function initialize() {
   const pool = new Pool();
   pool.connect((err) => {
     if ( err ) throw err;
@@ -18,7 +18,4 @@ async function initialize() {
 
   // init models and add them to the exported db object
   db.Movies = require('models/movies.model')(sequelize);
-
-  // sync all models with database
-  await sequelize.sync({ alter: true });
 }

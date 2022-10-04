@@ -1,7 +1,7 @@
 const Joi = require('joi');
 const validateRequest = require('middlewares/validateRequest')
 
-function newMovieSchema(req, res, next) {
+function movieSchema(req, res, next) {
   const schema = Joi.object({
     Title: Joi.string().required(),
     Year: Joi.string().required(),
@@ -13,5 +13,5 @@ function newMovieSchema(req, res, next) {
 }
 
 module.exports = {
-  newMovieSchema
+  movieSchema
 }

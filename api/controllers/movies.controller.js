@@ -1,18 +1,11 @@
 const moviesService = require('services/movies.service');
 
-function getAllMovies(req, res, next) {
+function getAllMovies(req, res) {
   moviesService.getAllMovies()
     .then(movies => res.json(movies))
-    .catch(next);
-}
-
-function saveMovie(req, res, next) {
-  moviesService.saveMovie(req.body)
-    .then(() => res.json({ code: 200, message: 'Movie saved' }))
-    .catch(next);
+    .catch(err => res.json(err));
 }
 
 module.exports = {
-  getAllMovies,
-  saveMovie
+  getAllMovies
 }
