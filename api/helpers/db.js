@@ -17,5 +17,5 @@ function initialize() {
   const sequelize = new Sequelize(PGDATABASE, PGUSER, PGPASSWORD, { dialect: 'postgres' });
 
   // init models and add them to the exported db object
-  db.Movies = require('models/movies.model')(sequelize);
+  db.Movies = require('database/models/movies.model')(sequelize);
 }
