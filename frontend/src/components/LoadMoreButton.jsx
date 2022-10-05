@@ -1,4 +1,4 @@
-import './styles.scss'
+import '../styles/components/LoadMoreButton.scss'
 
 export default function LoadMoreButton() {
   return (

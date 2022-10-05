@@ -1,4 +1,4 @@
-import './styles.scss'
+import '../styles/components/MovieCard.scss'
 
 export default function MovieCard( movie ) {
   const m = {
