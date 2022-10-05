@@ -1,6 +1,4 @@
-module.exports = validateRequest;
-
-function validateRequest(req, next, schema) {
+const validateRequest = (req, next, schema) => {
   const options = {
     abortEarly: false, // include all errors
     allowUnknown: true, // ignore unknown props
@@ -11,8 +9,10 @@ function validateRequest(req, next, schema) {
 
   if (error) {
     next(`Validation error: ${error.details.map(x => x.message).join(', ')}`);
-  } else {
-    req.body = value;
-    next();
   }
+
+  req.body = value;
+  next();
 }
+
+module.exports = validateRequest;

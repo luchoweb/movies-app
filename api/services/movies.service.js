@@ -1,8 +1,9 @@
-const db = require('database/db');
+const db = require('models');
 
-async function getAllMovies() {
-  return await db.Movies.findAll();
-}
+const getAllMovies = async ( page, limit ) => await db.Movies.findAll({
+  limit,
+  offset: page > 1 ? (page - 1) * limit : 0,
+});
 
 module.exports = {
   getAllMovies
