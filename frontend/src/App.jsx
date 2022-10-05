@@ -39,22 +39,19 @@ function App() {
 
         <ul className="movies__list">
           {
-            isLoading 
-            ? (
-              <li>Loading movies, please wait...</li>
-            ) 
+            isLoading ? (<li>Cargando películas, por favor espere...</li>)
+
             : movies?.length ? movies.map(movie => (
               <li className='movies__list-item' key={`k-${movie.id}`}>
                 <MovieCard movie={movie} />
               </li>
-            )) 
-            : (
-              <p>Error.</p>
-            )
+            ))
+
+            : (<p>No hay películas para mostrar.</p>)
           }
         </ul>
 
-        { !isLoading && movies?.length === 12 && (
+        { !isLoading && movies?.length >= 12 && (
           <div className="movies__button-more">
             <LoadMoreButton />
           </div>
