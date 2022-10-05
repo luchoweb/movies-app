@@ -27,6 +27,13 @@ h1, h2, h3, h4, h5, b, strong {
   font-weight: 700;
 }
 
+button, .button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
 .container {
   display: block;
   margin: 0 3%;
@@ -43,12 +50,5 @@ h1, h2, h3, h4, h5, b, strong {
 
   @media (min-width: 1024px) {
     width: 980px
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--color-text);
-    background-color: #ffffff;
   }
 }

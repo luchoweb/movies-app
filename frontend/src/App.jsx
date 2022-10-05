@@ -5,25 +5,29 @@ import getMovies from './api/getMovies'
 
 import MovieCard from './components/MovieCard'
 import LoadMoreButton from './components/LoadMoreButton'
+import SearchMovie from './components/SearchMovie'
 
 import './styles/App.scss'
 
 function App() {
   const { state: movies, dispatch } = useMovies()
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const movies = await getMovies()
+      const movies = await getMovies({ page: 1 })
 
-      if (movies) {
+      if ( !movies?.errorCode ) {
         dispatch({
           type: LOAD_MOVIES,
           payload: movies
         })
-
-        setIsLoading(false)
+      } else {
+        setError(true)
       }
+
+      setIsLoading(false)
     }
 
     if ( !movies?.length ) fetchMovies()
@@ -37,17 +41,27 @@ function App() {
           2020 "Love" Movies
         </h1>
 
+        <SearchMovie />
+
         <ul className="movies__list">
           {
-            isLoading ? (<li>Cargando películas, por favor espere...</li>)
-
-            : movies?.length ? movies.map(movie => (
-              <li className='movies__list-item' key={`k-${movie.id}`}>
+            error ? (
+              <li className='movies__list-item--w100'>
+                Ha ocurrido un error. Por favor refresque la ventana.
+              </li>
+            )
+            
+            : !error && isLoading ? (
+              <li className='movies__list-item--w100'>
+                Cargando películas, por favor espere...
+              </li>
+            )
+            
+            : !isLoading && movies?.length && movies.map(movie => (
+              <li className='movies__list-item' key={`k-${movie.id}-${movie.title}`}>
                 <MovieCard movie={movie} />
               </li>
             ))
-
-            : (<p>No hay películas para mostrar.</p>)
           }
         </ul>
 
