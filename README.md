@@ -16,6 +16,8 @@ Create a ```.env``` file in the ```/api``` folder with the following information
 
 ```txt
 PORT = 5000
+
+API_URL = 'https://www.omdbapi.com'
 API_KEY = abc123de45
 
 PGHOST = 'localhost'
