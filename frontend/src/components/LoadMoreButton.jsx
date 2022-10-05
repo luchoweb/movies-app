@@ -9,14 +9,14 @@ import '../styles/components/LoadMoreButton.scss'
 export default function LoadMoreButton() {
   const { dispatch } = useMovies()
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(2)
+  const [nextPage, setNextPage] = useState(true)
 
   const loadMoreMovies = async () => {
     setIsLoading(true)
   
-    const currentPage = page + 1
     const query = document.getElementById('search-movie').value
-    const movies = await getMovies({ page: currentPage, query })
+    const movies = await getMovies({ page, query })
     
     if (movies) {
       dispatch({
@@ -24,13 +24,15 @@ export default function LoadMoreButton() {
         payload: movies
       })
 
+      if ( movies.length < 12 ) setNextPage(false)
+
       setIsLoading(false)
     }
 
-    setPage(currentPage)
+    setPage(page + 1)
   }
 
-  return (
+  return nextPage && (
     <button 
       className='button-more'
       onClick={() => loadMoreMovies()}
