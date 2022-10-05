@@ -31,8 +31,8 @@ PGPORT = 5432
 
 1. Run PostgreSQL and create a database using the same ```PGDATABASE``` name setting on your **.env** file.
 2. Move to ```/api``` folder and run: ```npm install```
-3. Run migrations: ```sequelize db:migrate```
-4. Run seeders: ```sequelize db:seed:all```
+3. Run migrations: ```npx sequelize db:migrate```
+4. Run seeders: ```npx sequelize db:seed:all```
 5. Run the server: ```npm start```
 
 Note: for more information about **Sequelize CLI**, visit this [link](https://www.npmjs.com/package/sequelize-cli)
