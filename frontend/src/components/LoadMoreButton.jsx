@@ -15,7 +15,8 @@ export default function LoadMoreButton() {
     setIsLoading(true)
   
     const currentPage = page + 1
-    const movies = await getMovies(currentPage)
+    const query = document.getElementById('search-movie').value
+    const movies = await getMovies({ page: currentPage, query })
     
     if (movies) {
       dispatch({

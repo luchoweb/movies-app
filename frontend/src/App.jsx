@@ -5,6 +5,7 @@ import getMovies from './api/getMovies'
 
 import MovieCard from './components/MovieCard'
 import LoadMoreButton from './components/LoadMoreButton'
+import SearchMovie from './components/SearchMovie'
 
 import './styles/App.scss'
 
@@ -14,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const movies = await getMovies()
+      const movies = await getMovies({ page: 1 })
 
       if (movies) {
         dispatch({
@@ -36,6 +37,8 @@ function App() {
         <h1 className="movies__title">
           2020 "Love" Movies
         </h1>
+
+        <SearchMovie />
 
         <ul className="movies__list">
           {
