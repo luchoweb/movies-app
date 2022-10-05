@@ -1,0 +1,54 @@
+:root {
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  line-height: 1.4em;
+  font-weight: 300;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --color-text: #213547;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, b, strong {
+  font-weight: 700;
+}
+
+.container {
+  display: block;
+  margin: 0 3%;
+  width: 94%;
+
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    width: 640px
+  }
+
+  @media (min-width: 992px) {
+    width: 750px
+  }
+
+  @media (min-width: 1024px) {
+    width: 980px
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-text);
+    background-color: #ffffff;
+  }
+}
