@@ -1,0 +1,38 @@
+.movies {
+  padding: 3rem 0;
+
+  &__title {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__list {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    justify-content: space-between;
+    margin: 3rem 0;
+    padding: 0;
+
+    &-item {
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: 47%
+      }
+    
+      @media (min-width: 992px) {
+        width: 22%
+      }
+    }
+  }
+
+  &__button {
+    &-more {
+      text-align: center;
+    }
+  }
+}
