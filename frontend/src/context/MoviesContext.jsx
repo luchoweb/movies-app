@@ -4,7 +4,7 @@ import MoviesReducer from '../reducers/MoviesReducer'
 const MoviesContext = createContext()
 
 const MoviesProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(MoviesReducer, [])
+  const [state, dispatch] = useReducer(MoviesReducer, {})
 
   return (
     <MoviesContext.Provider value={{ state, dispatch }}>

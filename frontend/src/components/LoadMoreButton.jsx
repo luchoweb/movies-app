@@ -5,40 +5,41 @@ import getMovies from '../api/getMovies'
 import { LOAD_MOVIES } from '../reducers/MoviesReducer'
 
 import '../styles/components/LoadMoreButton.scss'
+import { useEffect } from 'react'
 
 export default function LoadMoreButton() {
-  const { dispatch } = useMovies()
+  const { state, dispatch } = useMovies()
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(2)
-  const [nextPage, setNextPage] = useState(true)
 
   const loadMoreMovies = async () => {
     setIsLoading(true)
+
+    const page = state?.page + 1
   
     const query = document.getElementById('search-movie').value
     const movies = await getMovies({ page, query })
     
-    if (movies) {
+    if ( !movies.errorCode ) {
       dispatch({
         type: LOAD_MOVIES,
-        payload: movies
+        payload: {
+          movies,
+          page,
+          nextPage: movies.length >= 12
+        }
       })
-
-      if ( movies.length < 12 ) setNextPage(false)
-
-      setIsLoading(false)
     }
 
-    setPage(page + 1)
+    setIsLoading(false)
   }
 
-  return nextPage && (
+  return (
     <button 
       className='button-more'
       onClick={() => loadMoreMovies()}
-      disabled={isLoading}
+      disabled={isLoading || !state?.nextPage}
     >
-      { isLoading ? 'Cargando...' : 'Cargar más películas'}
+      { state?.nextPage ? 'Cargar más películas' : 'No hay más películas'}
     </button>
   )
 }

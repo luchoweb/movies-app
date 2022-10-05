@@ -11,7 +11,7 @@ import Modal from './components/Modal'
 import './styles/App.scss'
 
 function App() {
-  const { state: movies, dispatch } = useMovies()
+  const { state, dispatch } = useMovies()
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(false)
 
@@ -22,7 +22,11 @@ function App() {
       if ( !movies?.errorCode ) {
         dispatch({
           type: LOAD_MOVIES,
-          payload: movies
+          payload: {
+            movies,
+            page: 1,
+            nextPage: movies?.length >= 12
+          }
         })
       } else {
         setError(true)
@@ -31,7 +35,7 @@ function App() {
       setIsLoading(false)
     }
 
-    if ( !movies?.length ) fetchMovies()
+    if ( !state?.movies?.length ) fetchMovies()
 
   }, [])
 
@@ -66,7 +70,7 @@ function App() {
                 </li>
               )
               
-              : !isLoading && movies?.length ? movies.map(movie => (
+              : !isLoading && state?.movies?.length ? state?.movies?.map(movie => (
                 <li className='movies__list-item' key={`k-${movie.id}-${movie.title}`}>
                   <MovieCard movie={movie} />
                 </li>
