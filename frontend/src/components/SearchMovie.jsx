@@ -11,14 +11,18 @@ const SearchMovie = () => {
 
   const searchMovies = async () => {
     setIsLoading(true)
-  
+
     const query = encodeURI(document.getElementById('search-movie').value)
     const movies = await getMovies({ query })
 
     if ( !movies.errorCode ) {
       dispatch({
         type: SEARCH_MOVIES,
-        payload: movies
+        payload: {
+          movies,
+          page: 1,
+          nextPage: movies?.length >= 12
+        }
       })
     }
 
