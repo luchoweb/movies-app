@@ -6,7 +6,13 @@ const getAllMovies = (req, res) => {
 
   moviesService.getAllMovies( page, limit )
     .then(movies => res.json(movies))
-    .catch(err => res.json(err));
+    .catch(err => {
+      res.status(500).json({
+        errorCode: 500,
+        errorMessage: 'An error occurred connecting to the database',
+        errorSequelize: err
+      });
+    });
 }
 
 module.exports = {
