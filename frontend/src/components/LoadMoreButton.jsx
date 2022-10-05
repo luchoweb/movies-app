@@ -3,7 +3,7 @@ import '../styles/components/LoadMoreButton.scss'
 export default function LoadMoreButton() {
   return (
     <button 
-      className='button button--load-more'
+      className='button-more'
       onClick={() => {}}
     >
       Cargar más películas
