@@ -57,11 +57,17 @@ function App() {
               </li>
             )
             
-            : !isLoading && movies?.length && movies.map(movie => (
+            : !isLoading && movies?.length ? movies.map(movie => (
               <li className='movies__list-item' key={`k-${movie.id}-${movie.title}`}>
                 <MovieCard movie={movie} />
               </li>
             ))
+
+            : (
+              <li className='movies__list-item--w100'>
+                No hay películas para mostrar.
+              </li>
+            )
           }
         </ul>
 

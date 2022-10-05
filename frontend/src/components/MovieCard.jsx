@@ -1,10 +1,13 @@
 import '../styles/components/MovieCard.scss'
 
 export default function MovieCard({ movie }) {
+  const noPoster = 'https://via.placeholder.com/200x300.png?text=No+poster'
+  const moviePoster = movie.poster === 'N/A' ? noPoster : movie.poster
+
   return (
     <div className="movie-card">
       <figure className="movie-card__poster">
-        <img src={movie.poster} alt={movie.title} />
+        <img src={moviePoster} alt={movie.title} />
       </figure>
 
       <div className="movie-card__details">
