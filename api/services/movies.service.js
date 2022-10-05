@@ -1,20 +1,18 @@
+const { Op } = require('sequelize');
 const db = require('models');
 
 const getAllMovies = async ({ query, page, limit }) => {
-  const options = {
+  const q = decodeURI(query);
+
+  return await db.Movies.findAll({
     limit,
     offset: page > 1 ? (page - 1) * limit : 0,
-  }
-
-  if ( query !== '' ) {
-    options.where = {
+    where: {
       title: {
-        [Op.like]: `%${query}%`
+        [Op.iLike]: `%${q}%`
       }
     }
-  }
-
-  return await db.Movies.findAll(options);
+  });
 } 
 
 module.exports = {

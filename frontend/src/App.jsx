@@ -45,7 +45,7 @@ function App() {
             isLoading ? (<li>Cargando películas, por favor espere...</li>)
 
             : movies?.length ? movies.map(movie => (
-              <li className='movies__list-item' key={`k-${movie.id}`}>
+              <li className='movies__list-item' key={`k-${movie.id}-${movie.title}`}>
                 <MovieCard movie={movie} />
               </li>
             ))
