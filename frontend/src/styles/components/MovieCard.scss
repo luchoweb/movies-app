@@ -3,6 +3,7 @@
   border-radius: 1rem;
   color: var(--color-text);
   overflow: hidden;
+  height: 100%;
 
   &__details {
     padding: .5rem 1rem;
@@ -11,9 +12,11 @@
 
   &__poster {
     margin: 0;
+    overflow: hidden;
 
     img {
-      height: auto;
+      height: 300px;
+      object-fit: cover;
       width: 100%;
     }
   }
