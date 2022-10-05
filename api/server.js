@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 const errorHandler = require('middlewares/errorHandler');
 
 const corsOptions = {
-  origin: ['*'],
+  origin: '*',
   optionsSuccessStatus: 200,
   methods: ["GET"]
 }
