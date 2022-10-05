@@ -54,9 +54,11 @@ function App() {
           }
         </ul>
 
-        <div className="movies__button-more">
-          <LoadMoreButton />
-        </div>
+        { !isLoading && movies?.length === 12 && (
+          <div className="movies__button-more">
+            <LoadMoreButton />
+          </div>
+        )}
       </div>
     </section>
   )
