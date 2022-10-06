@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import Modal from '../../components/Modal'
 import "@testing-library/jest-dom";
 
-describe("Accordion", () => {
+describe("Modal Component", () => {
   const modalInfo = {
     title: 'Mock Title',
     message: 'Mock Message'

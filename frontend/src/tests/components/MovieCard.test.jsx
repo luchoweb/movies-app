@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import MovieCard from '../../components/MovieCard'
 import "@testing-library/jest-dom";
 
-describe("Accordion", () => {
+describe("MovieCard Component", () => {
 
   const movie = {
     title: 'Mock Movie',
