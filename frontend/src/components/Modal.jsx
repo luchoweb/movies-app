@@ -18,6 +18,7 @@ const Modal = ({ data }) => {
         <button
           className="modal__button"
           onClick={() => setShow(!show)}
+          data-testid="modal-button"
         >
           Aceptar
         </button>
