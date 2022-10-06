@@ -53,7 +53,7 @@ VITE_API_MOVIES = 'http://localhost:5000/api/movies'
 
 #### Frontend
 
-1. Move to ```/api``` folder and run: ```npm install```
+1. Move to ```/frontend``` folder and run: ```npm install```
 2. Run the frontend: ```npm run dev```
 3. Production? Sure: ```npm run build```
 
