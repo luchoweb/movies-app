@@ -6,7 +6,10 @@ export default function MovieCard({ movie }) {
 
   return (
     <div className="movie-card">
-      <figure className="movie-card__poster">
+      <figure
+        className="movie-card__poster"
+        data-testid="movie-poster"
+      >
         <img src={moviePoster} alt={movie.title} />
       </figure>
 
