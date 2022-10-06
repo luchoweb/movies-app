@@ -1,7 +1,7 @@
 import {beforeEach, describe, expect, test} from 'vitest';
 import {render, screen} from '@testing-library/react';
-import MovieCard from '../../components/MovieCard'
 import "@testing-library/jest-dom";
+import MovieCard from '../../components/MovieCard';
 
 describe("MovieCard Component", () => {
 

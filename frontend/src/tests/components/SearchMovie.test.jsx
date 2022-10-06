@@ -1,10 +1,9 @@
 import {beforeEach, describe, expect, test} from 'vitest';
 import {render, screen} from '@testing-library/react';
-
-import { MoviesProvider } from '../../context/MoviesContext'
+import "@testing-library/jest-dom";
+import { MoviesProvider } from '../../context/MoviesContext';
 
 import SearchMovie from '../../components/SearchMovie';
-import "@testing-library/jest-dom";
 
 describe("SearchMovie Component", () => {
   beforeEach(() => {

@@ -38,6 +38,7 @@ export default function LoadMoreButton() {
       className='button-more'
       onClick={() => loadMoreMovies()}
       disabled={isLoading || !state?.nextPage}
+      data-testid="load-button"
     >
       { state?.nextPage ? 'Cargar más películas' : 'No hay más películas'}
     </button>

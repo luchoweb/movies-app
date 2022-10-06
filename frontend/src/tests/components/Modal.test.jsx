@@ -1,7 +1,7 @@
 import {beforeEach, describe, expect, test} from 'vitest';
 import {render, screen} from '@testing-library/react';
-import Modal from '../../components/Modal'
 import "@testing-library/jest-dom";
+import Modal from '../../components/Modal'
 
 describe("Modal Component", () => {
   const modalInfo = {
