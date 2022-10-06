@@ -10,6 +10,12 @@ Note: if you don't want to install GIT, you need to download the repository as a
 
 ---
 
+#### Clone
+
+Clone the repository: ```git clone https://github.com/luchoweb/movies-app.git```
+
+---
+
 #### API .Env
 
 Create a ```.env``` file in the ```/api``` folder with the following information:
