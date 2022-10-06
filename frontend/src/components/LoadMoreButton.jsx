@@ -1,11 +1,10 @@
 import { useState } from 'react'
 
-import useMovies from '../hooks/useMovies'
 import getMovies from '../api/getMovies'
+import useMovies from '../hooks/useMovies'
 import { LOAD_MOVIES } from '../reducers/MoviesReducer'
 
 import '../styles/components/LoadMoreButton.scss'
-import { useEffect } from 'react'
 
 export default function LoadMoreButton() {
   const { state, dispatch } = useMovies()
@@ -38,6 +37,7 @@ export default function LoadMoreButton() {
       className='button-more'
       onClick={() => loadMoreMovies()}
       disabled={isLoading || !state?.nextPage}
+      data-testid="load-button"
     >
       { state?.nextPage ? 'Cargar más películas' : 'No hay más películas'}
     </button>

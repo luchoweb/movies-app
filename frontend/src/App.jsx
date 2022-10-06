@@ -50,7 +50,7 @@ function App() {
 
       <section className="movies">
         <div className="container">
-          <h1 className="movies__title">
+          <h1 className="movies__title" data-testid="movies-title">
             2020 "Love" Movies
           </h1>
 
@@ -65,7 +65,7 @@ function App() {
               )
               
               : !error && isLoading ? (
-                <li className='movies__list-item--w100'>
+                <li className='movies__list-item--w100' data-testid="loading">
                   Cargando películas, por favor espere...
                 </li>
               )

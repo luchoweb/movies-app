@@ -31,11 +31,18 @@ const SearchMovie = () => {
 
   return (
     <div className="search">
-      <input type="text" id="search-movie" className="search__input" placeholder="Buscar película" />
+      <input
+        type="text"
+        id="search-movie"
+        className="search__input"
+        placeholder="Buscar película"
+        data-testid="search-input"
+      />
       <button
         className="search__button"
         onClick={() => searchMovies()}
         disabled={isLoading}
+        data-testid="search-button"
       >
         { isLoading ? 'Buscando...' : 'Buscar'}
       </button>
